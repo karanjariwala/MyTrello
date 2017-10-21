@@ -6,6 +6,7 @@ import api from '../Sevices/api.js';
 import data from '../Sevices/dataService.js';
 import {Button, Modal} from 'semantic-ui-react';
 import AddTodo from './AddTodo';
+import CardModal from './CardModal'
 
 
 class Trello extends Component {
@@ -18,6 +19,8 @@ class Trello extends Component {
         },
         open:false,
         eventBus:undefined,
+        selectedCard:'',
+        openCardModal:false,
     }
 
     componentWillMount(){
@@ -84,17 +87,51 @@ class Trello extends Component {
 
     onClose=()=>this.setState({open:false});
 
+    onCardClick=(cardId)=>{
+        let selectedCard={};
+        this.state.boardData.lanes.map((lane)=>{
+            lane.cards.map((card)=>{
+                if(card.id===cardId){
+                    selectedCard=card;
+                }
+            })
+        })
+
+        console.log(selectedCard)
+
+        this.setState({selectedCard:selectedCard, openCardModal:true})
+
+    }
+
+    onCardClose=()=>{
+        this.setState({openCardModal:false})
+    }
+
+    modifyCard =(modifiedCard)=>{
+        const newLanes= this.state.boardData.lanes.map((lane)=>{
+            lane.cards.map((card)=>{
+                if(card.id===modifiedCard.id){
+                    return modifiedCard;
+                }
+                return card;
+            })
+        })
+        this.setState({boardData:{lanes:newLanes}})
+
+    }
+
 
     render() {
         return ( 
             <div>
             {this.state.open&&<AddTodo users={this.state.users} lables={this.state.lables} onClose={this.onClose} open onSave={this.onSave} />}          
-                <div>
+             {this.state.openCardModal&&<CardModal users={this.state.users}   onClose={this.onCardClose} open selectedCard={this.state.selectedCard} onSave={this.modifyCard}/>}  
             <Button fluid color="red" onClick={this.onTodoClick} > Add Todo</Button>
-                <Board  handleDragEnd={(cardId, sourceLaneId, targetLaneId)=>this.handleDragEnd(cardId, sourceLaneId, targetLaneId)} draggable onDataChange={this.onDataChange} eventBusHandle={this.setEventBus} customCardLayout data = { this.state.boardData } >
+            
+            <Board onCardClick={this.onCardClick} handleDragEnd={(cardId, sourceLaneId, targetLaneId)=>this.handleDragEnd(cardId, sourceLaneId, targetLaneId)} draggable onDataChange={this.onDataChange} eventBusHandle={this.setEventBus} customCardLayout data = { this.state.boardData } >
             <CustomCard / >
             </Board >
-        </div>
+ 
         </div>)
         }
     }

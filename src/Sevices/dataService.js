@@ -15,38 +15,38 @@ boardData:{
                     assignee:'KJ',
                     dueOn:'25/10/17',
                     label:'yellow',
-                    comments:[{comment:'test_comment',users:['AB']}]
+                    comments:['test_comment12']
                 },
                 {
-                    id: 'Card2',
+                    id: 'Card223333444',
                     title:'gym',
                     desc:'pushup',
                     assignee:'JD',
                     dueOn:'30/10/17',
                     label:'red',
-                    comments:[{comment:'test_comment12',users:['KJ']}]
+                    comments:['test_comment12']
                 }]
         },
         {
             id: 'lane2',
             title: 'In Progress',
             cards: [{
-                    id: 'Card1',
-                    title:'HomeWork',
-                    desc:'Algebra',
+                    id: 'Card22222',
+                    title:'work',
+                    desc:'js',
                     assignee:'KJ',
                     dueOn:'25/10/17',
                     label:'yellow',
-                    comments:[{comment:'test_comment',users:['AB']}]
+                    comments:['test_comment12']
                 },
                 {
                     id: 'Card2',
-                    title:'gym',
-                    desc:'pushup',
+                    title:'Optimizations',
+                    desc:'webpack',
                     assignee:'JD',
                     dueOn:'30/10/17',
                     label:'red',
-                    comments:[{comment:'test_comment12',users:['KJ']}]
+                    comments:['test_comment12']
                 }]
         },
         {

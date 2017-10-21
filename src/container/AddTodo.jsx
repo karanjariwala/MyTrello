@@ -28,6 +28,12 @@ class AddTodo extends Component{
       
     }
 
+    isDisabled=()=>{
+        console.log(this.state,this.state.assignee!=='',this.state.label!=='',this.state.desc!=='',this.state.dueOn!=='',this.state.title!=='')
+        return this.state.assignee!==''&&this.state.label!==''&&this.state.desc!==''&&this.state.dueOn!==''&&this.state.title!==''
+    }
+    
+
 
     render(){
 
@@ -42,7 +48,7 @@ class AddTodo extends Component{
                         <Form.Input  onChange={this.handleChange}  name='desc' label='Description' placeholder='Description' />
                         </Form.Group>
                         <Form.Group>
-                        <Form.Input   onChange={this.handleChange}  name='Due On' label='dueOn' placeholder='1 day' />
+                        <Form.Input   onChange={this.handleChange}  name='dueOn' label='dueOn' placeholder='1 day' />
                         </Form.Group>
                         <Form.Group>
                         <Form.Select  onChange={this.handleChange}  label='Assignee'  name='assignee' placeholder='Assignee' selection options={this.props.users} />
@@ -52,7 +58,7 @@ class AddTodo extends Component{
                     </Form>
                     </Modal.Content>
                     <Modal.Actions>
-                    <Button type="submit" onClick={this.onSave}>Submit</Button>
+                    <Button disabled={!this.isDisabled()}  fluid color="green" type="submit" onClick={this.onSave}>Submit</Button>
                     </Modal.Actions>
          
             </Modal>
