@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Modal,Button,Input, Dropdown, Form,Grid} from 'semantic-ui-react';
+import AddTodoModal from '../presentational/AddTodoModal';
 
 class AddTodo extends Component{
     state={
@@ -37,33 +37,15 @@ class AddTodo extends Component{
 
     render(){
 
-        return (
-            <Modal size={'small'} open={this.props.open} onClose={this.props.onClose}>
-            <Modal.Content tex>
-                   <Form>
-                        <Form.Group>
-                        <Form.Input  onChange={this.handleChange}  name='title' label='Title' placeholder='Title' />
-                        </Form.Group>
-                        <Form.Group>
-                        <Form.Input  onChange={this.handleChange}  name='desc' label='Description' placeholder='Description' />
-                        </Form.Group>
-                        <Form.Group>
-                        <Form.Input   onChange={this.handleChange}  name='dueOn' label='Due In' placeholder='1 day' />
-                        </Form.Group>
-                        <Form.Group>
-                        <Form.Select  onChange={this.handleChange}  label='Assignee'  name='assignee' placeholder='Assignee' selection options={this.props.users} />
-                        <Form.Select  onChange={this.handleChange} label='Label'  name='label' placeholder='Label' selection options={this.props.lables} />
-                        </Form.Group>
-                       
-                    </Form>
-                    </Modal.Content>
-                    <Modal.Actions>
-                    <Button disabled={!this.isDisabled()}  fluid color="green" type="submit" onClick={this.onSave}>Submit</Button>
-                    </Modal.Actions>
-         
-            </Modal>
-        )
-}
+        return <AddTodoModal open={this.props.open} 
+            onClose={this.props.onClose} 
+            handleChange={this.handleChange}
+            users={this.props.users}
+            lables={this.props.lables} 
+            isDisabled={this.isDisabled}
+            onSave={this.onSave} />
+            
+        }
 
     
 };

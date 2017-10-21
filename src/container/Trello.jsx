@@ -6,7 +6,7 @@ import api from '../Sevices/api.js';
 import data from '../Sevices/dataService.js';
 import {Button, Modal} from 'semantic-ui-react';
 import AddTodo from './AddTodo';
-import CardModal from './CardModal'
+import Card from './Card'
 
 
 class Trello extends Component {
@@ -131,7 +131,7 @@ class Trello extends Component {
         return ( 
             <div>
             {this.state.open&&<AddTodo users={this.state.users} lables={this.state.lables} onClose={this.onClose} open onSave={this.onSave} />}          
-             {this.state.openCardModal&&<CardModal users={this.state.users}   onClose={this.onCardClose} open selectedCard={this.state.selectedCard} onSave={this.modifyCard}/>}  
+             {this.state.openCardModal&&<Card users={this.state.users}   onClose={this.onCardClose} open selectedCard={this.state.selectedCard} onSave={this.modifyCard}/>}  
             <Button fluid color="red" onClick={this.onTodoClick} > Add Todo</Button>
             
             <Board onCardClick={this.onCardClick} handleDragEnd={(cardId, sourceLaneId, targetLaneId)=>this.handleDragEnd(cardId, sourceLaneId, targetLaneId)} draggable onDataChange={this.onDataChange} eventBusHandle={this.setEventBus} customCardLayout data = { this.state.boardData } >
