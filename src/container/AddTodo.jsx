@@ -48,7 +48,7 @@ class AddTodo extends Component{
                         <Form.Input  onChange={this.handleChange}  name='desc' label='Description' placeholder='Description' />
                         </Form.Group>
                         <Form.Group>
-                        <Form.Input   onChange={this.handleChange}  name='dueOn' label='dueOn' placeholder='1 day' />
+                        <Form.Input   onChange={this.handleChange}  name='dueOn' label='Due In' placeholder='1 day' />
                         </Form.Group>
                         <Form.Group>
                         <Form.Select  onChange={this.handleChange}  label='Assignee'  name='assignee' placeholder='Assignee' selection options={this.props.users} />

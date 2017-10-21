@@ -2,8 +2,8 @@
 const data={
 users:[{key:'KJ',value:'KJ',text:'KJ'},{key:'JD',value:'JD',text:'JD'},{key:'AB',value:'AB',text:'AB'},
 {key:'CD',value:'CD',text:'CD'}],
-lables:[{key:'Y',value:'Y',text:'Yellow'},{key:'R',value:'R',text:'RED'},{key:'G',value:'G',text:'Green'},
-{key:'B',value:'B',text:'Blue'}],
+lables:[{key:'O',value:'Orange',text:'Orange'},{key:'R',value:'Red',text:'Red'},{key:'G',value:'Green',text:'Green'},
+{key:'B',value:'Blue',text:'Blue'}],
 boardData:{
     lanes: [{
             id: 'lane1',
@@ -14,39 +14,39 @@ boardData:{
                     desc:'Algebra',
                     assignee:'KJ',
                     dueOn:'25/10/17',
-                    label:'yellow',
-                    comments:['test_comment12']
+                    label:'Orange',
+                    comments:['test_comment1']
                 },
                 {
-                    id: 'Card223333444',
-                    title:'gym',
-                    desc:'pushup',
+                    id: 'Card2',
+                    title:'Gym',
+                    desc:'Push-ups',
                     assignee:'JD',
                     dueOn:'30/10/17',
-                    label:'red',
-                    comments:['test_comment12']
+                    label:'Red',
+                    comments:['test_comment2']
                 }]
         },
         {
             id: 'lane2',
             title: 'In Progress',
             cards: [{
-                    id: 'Card22222',
-                    title:'work',
-                    desc:'js',
+                    id: 'Card3',
+                    title:'Work',
+                    desc:'JS',
                     assignee:'KJ',
                     dueOn:'25/10/17',
-                    label:'yellow',
-                    comments:['test_comment12']
+                    label:'Orange',
+                    comments:['test_comment3']
                 },
                 {
-                    id: 'Card2',
+                    id: 'Card4',
                     title:'Optimizations',
-                    desc:'webpack',
+                    desc:'Webpack',
                     assignee:'JD',
                     dueOn:'30/10/17',
-                    label:'red',
-                    comments:['test_comment12']
+                    label:'Red',
+                    comments:['test_comment4']
                 }]
         },
         {

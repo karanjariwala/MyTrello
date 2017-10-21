@@ -109,17 +109,23 @@ class Trello extends Component {
 
     modifyCard =(modifiedCard)=>{
         const newLanes= this.state.boardData.lanes.map((lane)=>{
-            lane.cards.map((card)=>{
+            return {...lane,cards:lane.cards.map((card)=>{
                 if(card.id===modifiedCard.id){
                     return modifiedCard;
                 }
                 return card;
-            })
+            })}
         })
-        this.setState({boardData:{lanes:newLanes}})
+        const newstate={...this.state, boardData:{lanes:newLanes}}
+        this.setState(newstate,()=>{
+            api.save('data',this.state)
+           
+      
+        })
 
     }
 
+   
 
     render() {
         return ( 

@@ -7,15 +7,20 @@ class CardModal extends Component{
         newComment:''
     }
 
-    handleChange=(e)=>this.setState({newComment:e.target.value});
+    handleChange=(e)=>{
+        this.setState({newComment:e.target.value});
+    }
 
     save=()=>{
         const newCard=this.state.card;
         newCard.comments.push(this.state.newComment);
-       this.setState({card:newCard},()=>{
-        // this.props.onSave(this.state.card);
-       })
+       this.setState({card:newCard, newComment:''})
     }
+
+    componentWillUnmount(){
+        this.props.onSave(this.state.card);
+    }
+
 
 
     render(){
