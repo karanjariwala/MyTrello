@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Modal,Button,Header,Feed, Input} from 'semantic-ui-react';
+import {Modal,Button,Header,Feed, Input, Dropdown} from 'semantic-ui-react';
 
 const CardModal = props => {
     return ( 
@@ -17,7 +17,7 @@ const CardModal = props => {
                         <p>  Due on <b> {props.selectedCard.dueOn}</b></p>
                 </Header.Subheader>
                 <Header.Subheader>
-                        <p> Label <b> {props.selectedCard.label} </b></p>
+                        <p> Label <b style={{color:props.selectedCard.label}}> {props.selectedCard.label} </b></p>
                 </Header.Subheader>
                  </Header>
              {props.selectedCard.comments.length>0&&(<Feed size='small'>
@@ -30,7 +30,8 @@ const CardModal = props => {
                     </Feed.Content>
                 </Feed.Event>))}
             </Feed>)}
-             <Input value={props.newComment} onChange={props.handleChange}/>
+             <Input value={props.newComment} placeholder='Add comment' onChange={props.handleChange}/>
+             <Dropdown value={props.tagUsers} onChange={props.handleTagChange} placeholder='Tag Multiple Users'  multiple selection options={props.users} />
         </Modal.Content>
         <Modal.Actions>
         <Button disabled={props.newComment===''}   color="green"  onClick={props.save}>Add Comment</Button>
