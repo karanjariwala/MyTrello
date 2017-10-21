@@ -18,7 +18,6 @@ const CustomCard = props => {
                 <div style = {{fontSize: 12,color: '#BD3B36'}} />
                 <div style = {{ color: '#4C4C4C',fontWeight: 'bold'}}> {props.title} </div> <div style = {{padding: '5px 0px'}} > < i > {props.desc} </i></div>
                 <div style = {{ marginTop: 10,textAlign: 'center',color: '#777777',fontSize: 15,fontWeight: 'bold'}} > {props.label[0]} </div> 
-                <div style = {{ marginTop: 10,textAlign: 'center',color: '#777777',fontSize: 15,fontWeight: 'bold'}} > {props.comments[0].comment} </div>
      
         </div>)
 };

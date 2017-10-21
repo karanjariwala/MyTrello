@@ -1,6 +1,9 @@
 
-const data=()=>Promise.resolve({
-users:['KJ','JD', 'AB', 'CD'],
+const data={
+users:[{key:'KJ',value:'KJ',text:'KJ'},{key:'JD',value:'JD',text:'JD'},{key:'AB',value:'AB',text:'AB'},
+{key:'CD',value:'CD',text:'CD'}],
+lables:[{key:'Y',value:'Y',text:'Yellow'},{key:'R',value:'R',text:'RED'},{key:'G',value:'G',text:'Green'},
+{key:'B',value:'B',text:'Blue'}],
 boardData:{
     lanes: [{
             id: 'lane1',
@@ -11,7 +14,7 @@ boardData:{
                     desc:'Algebra',
                     assignee:'KJ',
                     dueOn:'25/10/17',
-                    label:['yellow'],
+                    label:'yellow',
                     comments:[{comment:'test_comment',users:['AB']}]
                 },
                 {
@@ -20,7 +23,7 @@ boardData:{
                     desc:'pushup',
                     assignee:'JD',
                     dueOn:'30/10/17',
-                    label:['red'],
+                    label:'red',
                     comments:[{comment:'test_comment12',users:['KJ']}]
                 }]
         },
@@ -33,7 +36,7 @@ boardData:{
                     desc:'Algebra',
                     assignee:'KJ',
                     dueOn:'25/10/17',
-                    label:['yellow'],
+                    label:'yellow',
                     comments:[{comment:'test_comment',users:['AB']}]
                 },
                 {
@@ -42,7 +45,7 @@ boardData:{
                     desc:'pushup',
                     assignee:'JD',
                     dueOn:'30/10/17',
-                    label:['red'],
+                    label:'red',
                     comments:[{comment:'test_comment12',users:['KJ']}]
                 }]
         },
@@ -58,6 +61,6 @@ boardData:{
             }]
         }
 
-})
+}
 
 export default data;
