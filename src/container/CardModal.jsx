@@ -1,9 +1,20 @@
 import React, {Component} from 'react';
-import {Modal,Button,Header,Feed} from 'semantic-ui-react';
+import {Modal,Button,Header,Feed, Input} from 'semantic-ui-react';
 
 class CardModal extends Component{
     state={
-        card:this.props.selectedCard
+        card:this.props.selectedCard,
+        newComment:''
+    }
+
+    handleChange=(e)=>this.setState({newComment:e.target.value});
+
+    save=()=>{
+        const newCard=this.state.card;
+        newCard.comments.push(this.state.newComment);
+       this.setState({card:newCard},()=>{
+        // this.props.onSave(this.state.card);
+       })
     }
 
 
@@ -33,11 +44,24 @@ class CardModal extends Component{
                   </Header>
 
                  
+
+                  {this.props.selectedCard.comments.length>0&&(<Feed size='small'>
                   <Header as='h4'>Comments</Header>
-                    {this.props.selectedCard.comments.length>0&&
-                        this.props.selectedCard.comments.map((comm)=>{
-                            <p>comm</p>
-                        })}
+              
+                  {this.props.selectedCard.comments.map((comm,i)=>(<Feed.Event key={i}>
+                    <Feed.Content>
+                      <Feed.Summary>
+                      {comm}
+                      </Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>))}
+              </Feed>)}
+
+
+              <Input value={this.state.newComment} onChange={this.handleChange}/>
+
+                 
+
             
               
          
@@ -47,7 +71,9 @@ class CardModal extends Component{
 
                     </Modal.Content>
                     <Modal.Actions>
-                    <Button   fluid color="green" type="submit" onClick={this.props.onClose}>Close</Button>
+                    <Button disabled={this.state.newComment===''}   color="green"  onClick={this.save}>Add Comment</Button>
+                    
+                    <Button    color="red"  onClick={this.props.onClose}>Close</Button>
                     </Modal.Actions>
          
             </Modal>
